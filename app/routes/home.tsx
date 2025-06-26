@@ -1,5 +1,5 @@
 import type { Route } from "./+types/home";
-import Home from "../src/Home";
+import Playground from "../src/Playground";
 
 export function meta({}: Route.MetaArgs) {
   return [
@@ -8,6 +8,6 @@ export function meta({}: Route.MetaArgs) {
   ];
 }
 
-export default function HomeRoute() {
-  return <Home />;
+export default function Home() {
+  return <Playground />;
 }

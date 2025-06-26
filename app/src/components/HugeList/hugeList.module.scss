@@ -1,0 +1,17 @@
+.listWrapper {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid green;
+  height: 200px;
+  overflow: auto;
+}
+
+.listItem {
+  border: 1px solid black;
+  background: grey;
+  padding: 10px;
+
+  & > input {
+    margin-right: 10px;
+  }
+}
