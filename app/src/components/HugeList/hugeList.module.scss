@@ -8,8 +8,14 @@
 
 .listItem {
   border: 1px solid black;
-  background: grey;
-  padding: 10px;
+  border-top: 0;
+  background: lightgray;
+  padding: 5px;
+  cursor: pointer;
+
+  &:hover {
+    background: lightblue;
+  }
 
   & > input {
     margin-right: 10px;
