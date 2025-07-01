@@ -4,5 +4,8 @@ import { defineConfig } from "vite";
 import tsconfigPaths from "vite-tsconfig-paths";
 
 export default defineConfig({
+  server: {
+    allowedHosts: ['3000.lcloud.lomonos.com.ua'],
+  },
   plugins: [tailwindcss(), reactRouter(), tsconfigPaths()],
 });

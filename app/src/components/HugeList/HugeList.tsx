@@ -24,7 +24,7 @@ const HugeList = ({ data, onChange }: IProps) => {
         onChange={ handleChange }
         className="accent-blue-500 focus:ring-2 focus:ring-blue-400"
       />
-      <span className="select-none">Select { data.itemPostfix } { index + 1 }</span>
+      <span className="select-none">Select { data?.itemPostfix } { index + 1 }</span>
     </label>
   ));
 
@@ -38,4 +38,4 @@ const HugeList = ({ data, onChange }: IProps) => {
   );
 }
 
-export default HugeList;
+export default React.memo(HugeList);
