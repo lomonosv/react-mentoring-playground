@@ -1,5 +1,5 @@
 import type { Route } from "./+types/home";
-import Playground from "../src/Playground";
+import Playground from "../src/2-ContextProblems/Playground";
 
 export function meta({}: Route.MetaArgs) {
   return [

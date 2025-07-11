@@ -1,19 +1,19 @@
 import { useState } from "react";
-import DataProvider from "~/src/providers/DataProvider";
+import DataProvider from "~/src/1-RenderingOptimizations/providers/DataProvider";
 
 
 
 const GetDataComponent = ({selectedValue}: any) => {
     const [outputContent, setOutputContent] = useState<string>('');
-    const [isFetching, setIsFetching] = useState<boolean>(true); 
+    const [isFetching, setIsFetching] = useState<boolean>(true);
 
     const handleClick = async () => {
-        setIsFetching(true); 
-    
+        setIsFetching(true);
+
         const data = await DataProvider.getData(selectedValue);
-    
+
         setOutputContent(JSON.stringify(data));
-    
+
         setIsFetching(false);
       };
 
@@ -36,4 +36,4 @@ const GetDataComponent = ({selectedValue}: any) => {
     )
 }
 
-export default GetDataComponent; 
+export default GetDataComponent;
