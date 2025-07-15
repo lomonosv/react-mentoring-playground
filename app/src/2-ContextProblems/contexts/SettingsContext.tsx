@@ -1,5 +1,4 @@
 import React, { createContext, useContext, useState, useEffect } from 'react';
-import { useAuthContext } from './AuthContext';
 
 interface ITheme {
   color: string;
@@ -19,19 +18,14 @@ const getThemeFromLocalStorage = () => {
 }
 
 const useSettings = () => {
-  const { isLoggedIn } = useAuthContext();
-  const [language, setLanguage] = useState('en');
-  // @ts-ignore
-  const [theme, setTheme] = useState(getThemeFromLocalStorage());
+  const [language, setLanguage] = useState<string>('en');
+  const [theme, setTheme] = useState<{ color : string }>(getThemeFromLocalStorage());
 
   useEffect(() => {
-    if (isLoggedIn) {
-      setLanguage('en');
-    }
-  }, [isLoggedIn]);
-
-  useEffect(() => () => {
     saveThemeToLocalStorage(theme);
+    return () => {
+
+    }
   }, [theme]);
 
   return {
@@ -42,17 +36,24 @@ const useSettings = () => {
   };
 };
 
-export const SettingsContext = createContext<any>(null);
+export const SettingsContext = createContext<ReturnType<typeof useSettings> | null>(null);
 
-export const useSettingsContext = () => useContext(SettingsContext) || {};
+export const useSettingsContext = () => {
+  const context = useContext(SettingsContext);
+
+  if (!context) {
+    throw new Error('useSettingsContext must be used within a SettingsContextProvider');
+  }
+
+  return context;
+};
 
 interface IProps {
   children: React.ReactNode,
 }
 
 const SettingsContextProvider = ({ children }: IProps) => {
-  const { language } = useSettings();
-  const { setLanguage } = useSettings();
+  const { language, setLanguage } = useSettings();
   const { theme, setTheme } = useSettings();
 
   const contextValue = {

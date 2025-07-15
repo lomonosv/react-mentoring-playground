@@ -30,7 +30,7 @@ const Settings = () => {
         <select
           id="theme-select"
           className="w-full max-w-xs px-3 py-2 border border-blue-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-300 mb-2"
-          value={ theme }
+          value={ JSON.stringify(theme) }
           onChange={ e => {
             setTheme?.(JSON.parse(e.target.value))
           }}

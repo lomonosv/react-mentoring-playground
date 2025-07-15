@@ -10,11 +10,11 @@ const Playground = () => {
       <h1 className="text-4xl font-bold text-gray-800 mb-8 drop-shadow">Context Problems Playground</h1>
       <div className="w-full max-w-5xl bg-white shadow-2xl rounded-2xl p-10 flex flex-row gap-10 border border-purple-100 min-h-[400px]">
         <AuthContext>
-          <Auth />
+          <SettingsContext>
+            <Auth />
+            <Settings />
+          </SettingsContext>
         </AuthContext>
-        <SettingsContext>
-          <Settings />
-        </SettingsContext>
       </div>
     </div>
   );
