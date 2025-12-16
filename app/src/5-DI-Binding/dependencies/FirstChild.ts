@@ -14,4 +14,8 @@ export class FirstChild implements IFirstChild {
   getFirstChildName(): string {
     return 'FirstChild';
   }
+
+  getInnerChild(): IInnerChild {
+    return this.innerChild;
+  }
 }

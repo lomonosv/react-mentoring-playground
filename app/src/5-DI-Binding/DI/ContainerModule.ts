@@ -9,11 +9,11 @@ import type { IFirstChild } from './interfaces/IFirstChild';
 import type { ISecondChild } from './interfaces/ISecondChild';
 import type { IInnerChild } from './interfaces/IInnerChild';
 
-export const ContainerModule = new InversifyContainerModule(({ bind }) => {
-  bind<IMain>(DITypes.Main).to(Main).inTransientScope();
-  bind<IFirstChild>(DITypes.FirstChild).to(FirstChild).inTransientScope();
-  bind<ISecondChild>(DITypes.SecondChild).to(SecondChild).inTransientScope();
-  bind<IInnerChild>(DITypes.InnerChild).to(InnerChild).inRequestScope();
+export const ContainerModule = new InversifyContainerModule(({ bind, unbind, onActivation, onDeactivation }) => {
+  bind<IMain>(DITypes.Main).to(Main).inSingletonScope();
+  bind<IFirstChild>(DITypes.FirstChild).to(FirstChild).inSingletonScope();
+  bind<ISecondChild>(DITypes.SecondChild).to(SecondChild).inSingletonScope();
+  bind<IInnerChild>(DITypes.InnerChild).to(InnerChild).inSingletonScope();
 });
 
 

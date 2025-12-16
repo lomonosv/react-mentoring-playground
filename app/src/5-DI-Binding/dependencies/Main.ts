@@ -17,4 +17,12 @@ export class Main implements IMain {
   getMainName(): string {
     return 'Main';
   }
+
+  getFirstChild(): IFirstChild {
+    return this.firstChild;
+  }
+
+  getSecondChild(): ISecondChild {
+    return this.secondChild;
+  }
 }

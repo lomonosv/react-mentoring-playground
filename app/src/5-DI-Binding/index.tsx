@@ -1,12 +1,13 @@
 import 'reflect-metadata';
 import DIContext, { useDIContext } from './DI/DIContext';
 import { DITypes } from './DI/DITypes';
+import type { IMain } from './DI/interfaces/IMain';
 
 const DIBinding = () => {
   const { container } = useDIContext();
 
   const handleInstantiation = () => {
-    const main = container.get(DITypes.Main);
+    const main = container.get<IMain>(DITypes.Main);
   }
 
   return (

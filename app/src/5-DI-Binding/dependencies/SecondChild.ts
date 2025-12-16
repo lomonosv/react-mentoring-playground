@@ -14,4 +14,8 @@ export class SecondChild implements ISecondChild {
   getSecondChildName(): string {
     return 'SecondChild';
   }
+
+  getInnerChild(): IInnerChild {
+    return this.innerChild;
+  }
 }
