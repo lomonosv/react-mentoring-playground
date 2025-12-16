@@ -9,11 +9,8 @@ import type { IFirstChild } from './interfaces/IFirstChild';
 import type { ISecondChild } from './interfaces/ISecondChild';
 import type { IInnerChild } from './interfaces/IInnerChild';
 
-export const ContainerModule = new InversifyContainerModule(({ bind, unbind, onActivation, onDeactivation }) => {
-  bind<IMain>(DITypes.Main).to(Main).inSingletonScope();
-  bind<IFirstChild>(DITypes.FirstChild).to(FirstChild).inSingletonScope();
-  bind<ISecondChild>(DITypes.SecondChild).to(SecondChild).inSingletonScope();
-  bind<IInnerChild>(DITypes.InnerChild).to(InnerChild).inSingletonScope();
+export const ContainerModule = new InversifyContainerModule(({ bind }) => {
+  // TODO: Make a Module with bindings...
 });
 
 
@@ -22,3 +19,10 @@ export const ContainerModule = new InversifyContainerModule(({ bind, unbind, onA
 // inSingletonScope - single instance for the whole application
 
 // Depends on the top level scope
+
+
+// Tasks:
+// 1. Create Inner Child as unique instance for each dependency
+// 2. Create Inner Child as a Singleton for each request in the same dependency graph
+// 3. Create Inner Child as a Singleton for the entire application
+// 4. Make Inner Child Factory and bind it as a Factory
