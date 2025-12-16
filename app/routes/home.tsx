@@ -1,5 +1,5 @@
 import type { Route } from "./+types/home";
-import Playground from "../src/2-ContextProblems/Playground";
+import DIBinding from "../src/5-DI-Binding";
 
 export function meta({}: Route.MetaArgs) {
   return [
@@ -9,5 +9,5 @@ export function meta({}: Route.MetaArgs) {
 }
 
 export default function Home() {
-  return <Playground />;
+  return <DIBinding />;
 }
